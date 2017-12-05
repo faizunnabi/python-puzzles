@@ -47,3 +47,17 @@ def checkio(data):
             return True
         #replace this for solution
     return False
+
+#function for checking substring in from list
+def count_words(text, words):
+    words_list=list(words)
+    contain_list=[]
+    words_list=[x.lower() for x in words_list]
+    input_str=text.split(" ")
+    input_str=[x.lower() for x in input_str]
+    print(input_str)
+    print(words_list)
+    for i in words_list:
+        if text.lower().find(i)!=-1:
+            contain_list.append(i)
+    return len(contain_list)
