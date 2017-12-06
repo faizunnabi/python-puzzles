@@ -93,3 +93,29 @@ def checkio(game_result):
         win='D'
     print(win)
     return win
+
+#function for chess
+def safe_pawns(pawns):
+    pawns_list=list(pawns)
+    safe_positions={}
+    all_safe_pos=[]
+    count=0
+    for p in pawns_list:
+        x,ys=p
+        y=int(ys)
+        posx=ord(x)
+        posxl=chr(posx-1)
+        posxr=chr(posx+1)
+        posy=str(y-1)
+        safe_pos=[posxl+posy,posxr+posy]
+        safe_positions[p]=safe_pos
+        
+    for p in pawns_list:
+        sf=safe_positions[p]
+        s1=set(sf)
+        s2=set(pawns_list)
+        pp=list(s1.intersection(s2))
+        if len(pp)==0:
+            count+=1
+
+    return len(pawns_list)-count
