@@ -61,3 +61,35 @@ def count_words(text, words):
         if text.lower().find(i)!=-1:
             contain_list.append(i)
     return len(contain_list)
+
+#function for tic tac toe
+def checkio(game_result):
+    col1=[]
+    col2=[]
+    col3=[]
+    win=''
+    for r in game_result:
+        col1.append(r[0])
+        col2.append(r[1])
+        col3.append(r[2])
+    print(col1)
+    print(col2)
+    print(col3)
+    if len(set(col1)) == 1 and col1[0]!='.':
+        win=col1[0]
+    elif len(set(col2)) == 1 and col2[0]!='.':
+        win=col2[0]
+    elif len(set(col3)) == 1 and col3[0]!='.':
+        win=col3[0]
+    elif (col1[0]==col2[1] and col2[1]==col3[2] and col1[0]!='.') or (col1[2]==col2[1] and col2[1]==col3[0] and col3[0]!='.'):
+        win=col2[1]
+    elif (col1[0]==col2[0] and col2[0]==col3[0] and col1[0]!='.'):
+        win=col1[0]
+    elif(col1[1]==col2[1] and col2[1]==col3[1] and col1[1]!='.'):
+        win=col1[1]
+    elif(col1[2]==col2[2] and col2[2]==col3[2] and col1[2]!='.'):
+        win=col1[2]
+    else:
+        win='D'
+    print(win)
+    return win
