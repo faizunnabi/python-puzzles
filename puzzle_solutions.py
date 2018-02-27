@@ -119,3 +119,20 @@ def safe_pawns(pawns):
             count+=1
 
     return len(pawns_list)-count
+
+#Function for copying files for Multi heirarchial directory to other directory
+
+import os
+import shutil
+import glob
+
+dest_dir = 'class1'
+
+all_dir = os.listdir('test')
+all_files = []
+for ad in all_dir:
+    all_files.append(glob.iglob(os.path.join('test', ad, '1', "*.png")))
+
+for p in all_files:
+    for pn in p:
+        shutil.copy(pn, dest_dir)
